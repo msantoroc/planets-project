@@ -5,14 +5,14 @@ const habitablePlanets = [];
 
 function isHabitablePlanet(planet) {
   return planet['koi_disposition'] === 'CONFIRMED'
-    && planet['koi_insol'] > 0.36 && planet['koi_insol'] < 1.11 // temperatura
-    && planet['koi_prad'] < 1.6; // tamanho
+    && planet['koi_insol'] > 0.36 && planet['koi_insol'] < 1.11 // temperature
+    && planet['koi_prad'] < 1.6; // size
 }
 
 fs.createReadStream('kepler_data.csv')
   .pipe(parse({
     comment: '#',
-    columns: true, // transforma cada linha do csv em um objeto js
+    columns: true, // turns each csv line into a js object
   }))
   .on('data', (data) => {
     if (isHabitablePlanet(data)) {
@@ -26,6 +26,6 @@ fs.createReadStream('kepler_data.csv')
     console.log(habitablePlanets.map((planet) => {
       return planet['kepler_name'];
     }));
-    
+
     console.log(`${habitablePlanets.length} habitable planets found!`);
   });
