@@ -4,5 +4,5 @@ This is a basic study project in nodeJS that read a nasa CSV file with all proba
 
 ### What do I learn with this?
 - How read files and return data with nodeJS
-- Witch API I should use when I need to read a big data archive
+- Which API I should use when I need to read a big data archive
 - How choose a library that will be most useful to my project
